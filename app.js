@@ -1,63 +1,4 @@
-// function weather() {
-
-//     var location = document.getElementById("location");
-//     var apiKey = 'b27c6e5136e305453b74ab695292c44e';
-//     var url = 'https://api.forecast.io/forecast/';
-
-//     navigator.geolocation.getCurrentPosition(success, error);
-
-// function success(position) {
-//     latitude = position.coords.latitude;
-//     longitude = position.coords.longitude;
-
-//     location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
-
-//     $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
-//         $('#temp').html(data.currently.temperature + '° F');
-//         $('#minutely').html(data.minutely.summary);
-//     });
-// }
-
-// function error() {
-//     location.innerHTML = "Unable to retrieve your location";
-// }
-
-//     location.innerHTML = "Locating...";
-// }
-
-// weather();
-
 $(document).ready(function() {
-    // var geocoder;
-
-    // function weather() {
-
-    //     const root = "https://fcc-weather-api.glitch.me/api/current?";
-    //     navigator.geolocation.getCurrentPosition(success, error);
-
-    //     function success(position) {
-    //         latitude = position.coords.latitude;
-    //         longitude = position.coords.longitude;
-    //         console.log(position);
-
-    //         location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
-
-    //         fetch(`${root}lat=${latitude}&lon=${longitude}`, { method: "get" })
-    //             .then(resp => resp.json())
-    //             .then(data => {
-    //                 console.log(data);
-    //                 //updateDataToUI(data.name, data.weather, data.main.temp);
-    //             })
-    //             .catch(function(err) {
-    //                 console.error(err);
-    //             });
-    //     }
-
-    //     function error() {
-    //         //location.innerHTML = "Unable to retrieve your location";
-    //     }
-    // }
-    // weather();
 
     const loc = document.getElementById("location");
     const temNum = document.getElementById("temperature-num");
@@ -70,8 +11,8 @@ $(document).ready(function() {
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(position => {
-                //getWeather(position.coords.latitude, position.coords.longitude);
-                getWeather(20.2961, 85.8245);
+                getWeather(position.coords.latitude, position.coords.longitude);
+                //getWeather(20.2961, 85.8245);
             });
         } else {
             loc.innerHTML = "Geolocation is not supported by this browser.";
